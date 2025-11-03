@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_medic
+    description: "Dimensi tenaga medis dan fasilitas rumah sakit"
+    columns:
+      - name: doctor
+        description: "Nama dokter"
+        tests:
+          - accepted_values:
+              values: ["dr. citra", "dr. zhafar", "dr. dhika", "dr. jane"]
+      - name: room
+        description: "Jenis ruangan pasien"
+        tests:
+          - accepted_values:
+              values: ["icu", "emergency room", "general ward", "vip room"]
+      - name: diagnosa
+        description: "Diagnosis penyakit pasien"
+        tests:
+          - accepted_values:
+              values: ["diabetes", "stroke", "asthma", "dengue fever", "heart disease", "cancer"]

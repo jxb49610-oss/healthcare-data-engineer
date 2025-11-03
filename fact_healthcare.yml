@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fact_healthcare
+    description: "Fakta utama, mencatat semua kejadian admission pasien."
+    columns:
+      - name: patient_id
+        description: "Referensi ke dim_patient"
+      - name: admission_type
+        description: "Tipe admission pasien"
+        tests:
+          - accepted_values:
+              values: ['emergency', 'urgent', 'elective']
+      - name: admission_date
+        description: "Tanggal pasien masuk rumah sakit"
+      - name: discharge_date
+        description: "Tanggal pasien keluar rumah sakit"
+      - name: length_of_stay
+        description: "Lama rawat inap (hari)"
+      - name: billing_amount
+        description: "Total tagihan pasien"
+      - name: outcome
+        description: "Hasil perawatan pasien"
+        tests:
+          - accepted_values:
+              values: ["recovered", "referred", "deceased"]
+      - name: rating_service
+        description: "Rating kualitas layanan (1-5)"
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+              quote: false
+      - name: doctor
+        description: "Referensi ke dim_medic"
+      - name: room
+        description: "Referensi ke dim_medic"
+      - name: insurance_provider
+        description: "Referensi ke dim_insurance"
